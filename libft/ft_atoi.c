@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/29 13:11:02 by sonfong           #+#    #+#             */
-/*   Updated: 2026/07/30 16:35:04 by sonfong          ###   ########.fr       */
+/*   Created: 2026/07/30 17:21:42 by sonfong           #+#    #+#             */
+/*   Updated: 2026/07/30 17:38:19 by sonfong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memmove(void *dest, const void *src, size_t n)
+int	ft_atoi(const char *nptr)
 {
-	char	*cdest;
-	char	*csrc;
+	int	sign;
+	int	res;
+	int	i;
 
-	cdest = (char *)dest;
-	csrc = (char *)src;
-	if (dest <= src)
+	sign = 1;
+	res = 0;
+	i = 0;
+	while (nptr[i] == ' ')
+		i++;
+	if (nptr[i] == '-')
 	{
-		while (n--)
-			*cdest++ = *csrc++;
+		sign *= -1;
+		i++;
 	}
-	else if (dest > src)
-	{
-		cdest += n - 1;
-		csrc += n - 1;
-		while (n--)
-			*cdest-- = *csrc--;
-	}
-	else if (!dest && !src)
-		return (0);
-	return (dest);
-}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+		res = 10 * res + (nptr[i++] - '0');
+	return (sign * res);

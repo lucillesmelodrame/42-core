@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/29 13:11:02 by sonfong           #+#    #+#             */
-/*   Updated: 2026/07/30 16:35:04 by sonfong          ###   ########.fr       */
+/*   Created: 2026/07/30 16:41:05 by sonfong           #+#    #+#             */
+/*   Updated: 2026/07/30 16:53:55 by sonfong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memset(void *src, int c, size_t n)
 {
-	char	*cdest;
-	char	*csrc;
+	char	csrc;
 
-	cdest = (char *)dest;
 	csrc = (char *)src;
-	if (dest <= src)
-	{
-		while (n--)
-			*cdest++ = *csrc++;
-	}
-	else if (dest > src)
-	{
-		cdest += n - 1;
-		csrc += n - 1;
-		while (n--)
-			*cdest-- = *csrc--;
-	}
-	else if (!dest && !src)
-		return (0);
-	return (dest);
+	while (*src)
 }

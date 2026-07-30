@@ -1,37 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/29 13:11:02 by sonfong           #+#    #+#             */
-/*   Updated: 2026/07/30 16:35:04 by sonfong          ###   ########.fr       */
+/*   Created: 2026/07/28 17:00:32 by sonfong           #+#    #+#             */
+/*   Updated: 2026/07/30 18:07:07 by sonfong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memmove(void *dest, const void *src, size_t n)
+int	ft_strlen(char *str)
 {
-	char	*cdest;
-	char	*csrc;
+	int	i;
 
-	cdest = (char *)dest;
-	csrc = (char *)src;
-	if (dest <= src)
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strchr(char *src, int c)
+{
+	int	i;
+
+	i = ft_strlen(src);
+	while (i--)
 	{
-		while (n--)
-			*cdest++ = *csrc++;
+		if (c == src[i])
+			return(&src[i]);
+		i--;
 	}
-	else if (dest > src)
-	{
-		cdest += n - 1;
-		csrc += n - 1;
-		while (n--)
-			*cdest-- = *csrc--;
-	}
-	else if (!dest && !src)
-		return (0);
-	return (dest);
+	if (c == '\0')
+		return (src);
+	return (0);
+}
+
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
+{
+	char	s1[] = "Hello World!";
+	printf("%s\n", ft_strchr(s1, 'o'));
 }

@@ -6,25 +6,33 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 12:17:42 by sonfong           #+#    #+#             */
-/*   Updated: 2026/07/29 17:51:57 by sonfong          ###   ########.fr       */
+/*   Updated: 2026/07/30 16:38:05 by sonfong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_memcpy(const void *dest, const void *src, size_t n)
-{
-	const unsigned char	*p1;
-	const unsigned char	*p2;
-	int	i;
+#include "libft.h"
 
-	p1 = (const unsigned char *)dest;
-	p2 = (const unsigned char *)src;
-	i = 0;
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	char	*cdest;
+	char	*csrc;
+
+	cdest = (char *)dest;
+	csrc = (char *)src;
 	if (n == 0)
 		return (0);
-	while (p1[i] && i < n)
-	{
-		p1[i] = p2[i];
-		i++;
-	}
-	return (p1);
+	while (n--)
+		*cdest++ = *csrc++;
+	return (dest);
+}
+
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
+{
+	char	s1[10] = "Hello";
+	char	*s2 = "Hi!";
+	ft_memcpy(s1, s2, 2);
+	printf("%s\n", s1);
 }
