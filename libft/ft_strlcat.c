@@ -6,14 +6,14 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 16:18:19 by sonfong           #+#    #+#             */
-/*   Updated: 2026/07/28 16:51:20 by sonfong          ###   ########.fr       */
+/*   Updated: 2026/08/05 19:50:44 by sonfong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strlcat(char *dest, char *src, unsigned int n)
+char	*ft_strlcat(char *dest, const char *src, size_t n)
 {
-	unsigned int	i;
-	unsigned int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;

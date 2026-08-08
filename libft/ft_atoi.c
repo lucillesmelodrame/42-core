@@ -29,3 +29,4 @@ int	ft_atoi(const char *nptr)
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 		res = 10 * res + (nptr[i++] - '0');
 	return (sign * res);
+}
