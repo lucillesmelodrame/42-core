@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 12:17:42 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/07 09:29:34 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/09 04:41:32 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,18 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	char	*cdest;
 	char	*csrc;
+	size_t	i;
 
 	cdest = (char *)dest;
 	csrc = (char *)src;
+	i = 0;
 	if (n == 0)
 		return (0);
 	while (n--)
-		*cdest++ = *csrc++;
+	{
+		cdest[i] = csrc[i];
+		i++;
+	}
 	return (dest);
 }
 

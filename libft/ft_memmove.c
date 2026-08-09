@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 13:11:02 by sonfong           #+#    #+#             */
-/*   Updated: 2026/07/30 16:35:04 by sonfong          ###   ########.fr       */
+/*   Updated: 2026/08/09 00:55:21 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,37 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	char	*cdest;
 	char	*csrc;
+	size_t	i;
 
 	cdest = (char *)dest;
 	csrc = (char *)src;
-	if (dest <= src)
+	i = 0;
+	if (!dest && !src)
+		return (0);
+	else if (dest <= src)
 	{
-		while (n--)
-			*cdest++ = *csrc++;
+		while (i < n)
+		{
+			cdest[i] = csrc[i];
+			i++;
+		}
 	}
 	else if (dest > src)
 	{
-		cdest += n - 1;
-		csrc += n - 1;
-		while (n--)
-			*cdest-- = *csrc--;
+		while (n > 0)
+		{
+			n -= 1;
+			cdest[n] = csrc[n];
+			n--;
+		}
 	}
-	else if (!dest && !src)
-		return (0);
 	return (dest);
 }
+
+/* int	main(void)
+{
+	char	s1[] = "Hello";
+	char	s2[] = "World!";
+	memmove(s1, s2, 4);
+	printf("%s\n", s1);
+} */
