@@ -1,50 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/29 16:02:36 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/12 02:48:34 by melodrame        ###   ########.fr       */
+/*   Created: 2026/08/11 16:14:34 by sonfong           #+#    #+#             */
+/*   Updated: 2026/08/12 17:06:40 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *src, const char *find, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
-	size_t	j;
+	char	*substr;
 
+	if (!s)
+		return (NULL);
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > ft_strlen(s + start))
+		len = ft_strlen(s + start);
+	substr = ft_calloc(len + 1, sizeof(char));
+	if (!substr)
+		return (NULL);
 	i = 0;
-	j = 0;
-	if (!find)
-		return ((char *)src);
-	while (src[i] && i < n)
+	while (i < len)
 	{
-		while (src[i + j] == find[j] && src[i + j] && i + j < n)
-		{
-			j++;
-			if (find[j] == 0)
-				return ((char *)src + i);
-		}
+		substr[i] = s[start + i];
 		i++;
-		j = 0;
 	}
-	return (0);
+	return (substr);
 }
 
-/* int	main(void)
+int	main(void)
 {
 	char	s1[20] = "Hello World!";
-	char	s2[4] = "el";
-//	int	i = 0;
-//	while (i <= 5)
-//	{
-		char	*result = ft_strnstr(s1, s2, 3);
-		printf("%s\n", result);
-//		i++;
-//	}
-	return (0);
-} */
+	char	*result = ft_substr(s1, 7, 9);
+	printf("%s\n", result);
+}

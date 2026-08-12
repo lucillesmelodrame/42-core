@@ -1,50 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/29 16:02:36 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/12 02:48:34 by melodrame        ###   ########.fr       */
+/*   Created: 2026/08/09 19:58:29 by sonfong           #+#    #+#             */
+/*   Updated: 2026/08/12 16:52:05 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *src, const char *find, size_t n)
+char	*ft_strdup(const char *s1)
 {
-	size_t	i;
+	char	*tmp;
+	int	i;
 	size_t	j;
 
 	i = 0;
-	j = 0;
-	if (!find)
-		return ((char *)src);
-	while (src[i] && i < n)
+	j = ft_strlen(s1) + 1;
+	tmp = malloc(j * sizeof(char));
+	if (!tmp)
+		return (NULL);
+	while (s1[i])
 	{
-		while (src[i + j] == find[j] && src[i + j] && i + j < n)
-		{
-			j++;
-			if (find[j] == 0)
-				return ((char *)src + i);
-		}
+		tmp[i] = s1[i];
 		i++;
-		j = 0;
 	}
-	return (0);
+	tmp[i] = '\0';
+	return (tmp);
 }
 
 /* int	main(void)
 {
-	char	s1[20] = "Hello World!";
-	char	s2[4] = "el";
-//	int	i = 0;
-//	while (i <= 5)
-//	{
-		char	*result = ft_strnstr(s1, s2, 3);
-		printf("%s\n", result);
-//		i++;
-//	}
-	return (0);
+	char	s1[] = "Hello World!";
+	char	*result = ft_strdup(s1);
+	printf("%s\n", result);
 } */
