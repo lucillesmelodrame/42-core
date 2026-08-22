@@ -1,44 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/11 16:14:34 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/13 09:12:32 by melodrame        ###   ########.fr       */
+/*   Created: 2026/08/21 22:35:12 by sonfong           #+#    #+#             */
+/*   Updated: 2026/08/22 01:29:29 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	size_t	i;
-	char	*substr;
+	size_t	len;
+	char	*res;
 
-	if (!s)
-		return (NULL);
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	if (len > ft_strlen(s + start))
-		len = ft_strlen(s + start);
-	substr = ft_calloc(len + 1, sizeof(char));
-	if (!substr)
-		return (NULL);
 	i = 0;
-	while (i < len)
+	len = ft_strlen(s);
+	res = ft_calloc(len + 1, sizeof(char));
+	if (!res)
+		return (NULL);
+	while (s[i])
 	{
-		substr[i] = s[start + i];
+		res[i] = f(i, s[i]);
 		i++;
 	}
-	return (substr);
+	return (res);
 }
 /*
+char	my_map(unsigned int n, char c)
+{
+	if (n % 2 == 0)
+		c -= 32;
+	return (c);
+}
+
 int	main(void)
 {
-	char	s1[20] = "Hello World!";
-	char	*result = ft_substr(s1, 3, 24);
-	printf("%s\n", result);
+	char	s[] = "hello world";
+	char	*res = ft_strmapi(s, my_map);
+	printf("%s\n", res);
 }
 */

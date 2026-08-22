@@ -1,44 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/11 16:14:34 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/13 09:12:32 by melodrame        ###   ########.fr       */
+/*   Created: 2026/08/21 21:44:39 by sonfong           #+#    #+#             */
+/*   Updated: 2026/08/21 22:26:06 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	size_t	i;
-	char	*substr;
 
-	if (!s)
-		return (NULL);
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	if (len > ft_strlen(s + start))
-		len = ft_strlen(s + start);
-	substr = ft_calloc(len + 1, sizeof(char));
-	if (!substr)
-		return (NULL);
 	i = 0;
-	while (i < len)
+	while (s[i])
 	{
-		substr[i] = s[start + i];
+		f(i, &s[i]);
 		i++;
 	}
-	return (substr);
 }
 /*
+void	my_func(unsigned int i, char *c)
+{
+	if (i % 2 == 0)
+		*c -= 32;
+}
+
 int	main(void)
 {
-	char	s1[20] = "Hello World!";
-	char	*result = ft_substr(s1, 3, 24);
-	printf("%s\n", result);
+	char	s[] =  "Hello World!";
+	ft_striteri(s, my_func);
+	printf("%s\n", s);
 }
 */

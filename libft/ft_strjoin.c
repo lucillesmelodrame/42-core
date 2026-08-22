@@ -1,44 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/11 16:14:34 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/13 09:12:32 by melodrame        ###   ########.fr       */
+/*   Created: 2026/08/13 09:12:59 by sonfong           #+#    #+#             */
+/*   Updated: 2026/08/13 09:23:22 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
+	char	*str;
 	size_t	i;
-	char	*substr;
+	size_t	j;
 
-	if (!s)
-		return (NULL);
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	if (len > ft_strlen(s + start))
-		len = ft_strlen(s + start);
-	substr = ft_calloc(len + 1, sizeof(char));
-	if (!substr)
-		return (NULL);
 	i = 0;
-	while (i < len)
+	j = 0;
+	str = ft_calloc((ft_strlen(s1) + ft_strlen(s2) + 1), sizeof(char));
+	if (!str)
+		return (NULL);
+	while (s1[i])
 	{
-		substr[i] = s[start + i];
+		str[i] = s1[i];
 		i++;
 	}
-	return (substr);
+	while (s2[j])
+	{
+		str[i] = s2[j];
+		i++;
+		j++;
+	}
+	str[i] = '\0';
+	return (str);
 }
-/*
+
 int	main(void)
 {
-	char	s1[20] = "Hello World!";
-	char	*result = ft_substr(s1, 3, 24);
+	char	s1[10] = "Hello";
+	char	s2[10] = " World!";
+	char	*result = ft_strjoin(s1, s2);
 	printf("%s\n", result);
 }
-*/
