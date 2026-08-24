@@ -2,10 +2,24 @@ NAME = libft.a
 
 FLAGS = -Wall -Wextra -Werror
 
-OBJECTS = 
+CC = cc
 
-all:
-	cc $(FLAGS) -c 
+OBJECTS = $(SRCS:.c=.o)
+
+SRCS = $(wildcard ft_*.c)
+
+all: $(NAME)
+
+$(NAME): $(OBJECTS)
+	ar rcs $(NAME) $(OBJECTS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -r *.o *.a
+	rm -f $(OBJECTS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
