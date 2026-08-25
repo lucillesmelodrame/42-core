@@ -6,9 +6,11 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 16:18:19 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/05 19:50:44 by sonfong          ###   ########.fr       */
+/*   Updated: 2026/08/25 13:15:31 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strlcat(char *dest, const char *src, size_t n)
 {

@@ -6,16 +6,23 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/23 15:59:37 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/23 16:21:54 by sonfong          ###   ########.fr       */
+/*   Updated: 2026/08/25 13:07:09 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	while (lst)
-	{
-		ft_lstdelone(lst, del);
-		lst = lst->next;
-	}
+	t_list	*current;
+	t_list	*next;
 
+	current = *lst;
+	while (current)
+	{
+		next = current->next;
+		ft_lstdelone(current, del);
+		current = next;
+	}
+	*lst = NULL;
 }

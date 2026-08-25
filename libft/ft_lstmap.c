@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/23 16:26:47 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/23 17:49:48 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/25 13:14:57 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	struct s_list	head;
-	struct s_list	new;
+	struct s_list	*head;
+	struct s_list	*new;
 
 	head = NULL;
 	if (!f || !del)
@@ -25,10 +25,10 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		new = ft_lstnew(f(lst->content));
 		if (!new)
 		{
-			ft_lstclear(head, del);
+			ft_lstclear(&head, del);
 			return (NULL);
 		}
-		ft_lstadd_back(head, new);
+		ft_lstadd_back(&head, new);
 		lst = lst->next;
 	}
 	return (head);
