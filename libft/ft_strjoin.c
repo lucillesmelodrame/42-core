@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 09:12:59 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/13 09:23:22 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/25 15:45:37 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	str[i] = '\0';
 	return (str);
 }
-
+/*
 int	main(void)
 {
 	char	s1[10] = "Hello";
@@ -45,3 +45,4 @@ int	main(void)
 	char	*result = ft_strjoin(s1, s2);
 	printf("%s\n", result);
 }
+*/

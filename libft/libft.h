@@ -6,16 +6,13 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 15:16:03 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/25 12:43:41 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/25 15:48:38 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <stddef.h>
-#include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
 

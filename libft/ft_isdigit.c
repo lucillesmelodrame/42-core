@@ -6,9 +6,11 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 15:03:52 by sonfong           #+#    #+#             */
-/*   Updated: 2026/07/27 15:23:08 by sonfong          ###   ########.fr       */
+/*   Updated: 2026/08/25 15:42:22 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isdigit(int n)
 {

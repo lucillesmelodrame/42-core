@@ -6,9 +6,11 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 16:52:04 by sonfong           #+#    #+#             */
-/*   Updated: 2026/07/28 16:53:57 by sonfong          ###   ########.fr       */
+/*   Updated: 2026/08/25 15:46:17 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	ft_tolower(char c)
 {

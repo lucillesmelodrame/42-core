@@ -5,85 +5,52 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/14 01:02:49 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/21 09:42:50 by melodrame        ###   ########.fr       */
+/*   Created: 2026/08/26 14:34:11 by sonfong           #+#    #+#             */
+/*   Updated: 2026/08/28 02:12:21 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+static int	in_word(char s, char delim);
 
-static int	in_word(char const c, char delim);
+static size_t	count_words(const char *str, char delim);
 
-static int	count_words(char const *str, char delim);
+static void	*ft_free(char **str, int count);
 
-static void	free_split(char **result, int box_index);
+static char	*fill_word(const char *str, int start, size_t end);
 
-char	**ft_split(char const *s, char delim)
+char	**ft_split(char const *s, char c)
 {
-	size_t	word_start_index;
-	size_t	in_word_state;
-	size_t	box_index;
+	char	**result;
+	int	start_index;
 	size_t	i;
 	size_t	j;
-	size_t	len;
-	char	**result;
 
-	word_start_index = 0;
-	in_word_state = 0;
-	box_index = 0;
+	start_index = -1;
 	i = 0;
-	result = ft_calloc(count_words(s, delim) + 1, sizeof(char *));
+	j = 0;
+	result = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
-	while (s[i])
+	while (i <= ft_strlen(s))
 	{
-		if (in_word(s[i], delim) && in_word_state == 0)
+		if (in_word(s[i], c) && start_index < 0)
+			start_index = i;
+		else if (!in_word(s[i], c) && start_index >= 0)
 		{
-			word_start_index = i;
-			in_word_state = 1;
-		}
-		if (!in_word(s[i], delim) && in_word_state == 1)
-		{
-			in_word_state = 0;
-			len = i - word_start_index;
-			result[box_index] = ft_calloc(len + 1, sizeof(char));
-			if (!result[box_index])
-			{
-				free_split(result, 0);
-				return (NULL);
-			}
-			j = 0;
-			while (j < len)
-			{
-				result[box_index][j] = s[j + word_start_index];
-				j++;
-			}
-			box_index++;
+			if (!(result[j] = fill_word(s, start_index, i)))
+				return (ft_free(result, j));
+			start_index = -1;
+			j++;
 		}
 		i++;
 	}
-	if (in_word_state == 1)
-	{
-		len = i - word_start_index;
-		result[box_index] = ft_calloc(len + 1, sizeof(char));
-		if (!result[box_index])
-		{
-			free_split(result, 0);
-			return (NULL);
-		}
-		j = 0;
-		while (j < len)
-		{
-			result[box_index][j] = s[j + word_start_index];
-			j++;
-		}
-		box_index++;
-	}
-	result[box_index] = NULL;
+	result[j] = NULL;
 	return (result);
 }
 
-static int	in_word(char const c, char delim)
+static int	in_word(char c, char delim)
 {
 	if (c != delim && c != '\0')
 		return (1);
@@ -91,7 +58,7 @@ static int	in_word(char const c, char delim)
 		return (0);
 }
 
-static int	count_words(char const *str, char delim)
+static size_t	count_words(const char *str, char delim)
 {
 	size_t	i;
 	size_t	count;
@@ -108,20 +75,35 @@ static int	count_words(char const *str, char delim)
 	return (count);
 }
 
-static void	free_split(char **result, int box_index)
+static void	*ft_free(char **str, int count)
 {
-	while (result[box_index])
+	int	i;
+
+	i = 0;
+	while (i < count)
 	{
-		free(result[box_index]);
-		box_index++;
+		free(str[i]);
+		i++;
 	}
-	free(result);
+	free(str);
+	return (NULL);
 }
 
+static char	*fill_word(const char *str, int start, size_t end)
+{
+	char	*word;
+	size_t	len;
+
+	len = end - start;
+	word = ft_substr(str, start, len);
+	return (word);
+}
+
+#include <stdio.h>
 int	main(void)
 {
-	char	s1[20] = ",hello,,world,";
-	char	delim = ',';
+	char	s1[] = "       hello      world         ";
+	char	delim = ' ';
 	char	**result = ft_split(s1, delim);
 	int	i = 0;
 	while (result[i])
@@ -129,6 +111,5 @@ int	main(void)
 		printf("[%s]\n", result[i]);
 		i++;
 	}
-	free_split(result, 0);
 	return (0);
 }

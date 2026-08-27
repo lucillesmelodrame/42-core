@@ -6,11 +6,13 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 13:39:09 by sonfong           #+#    #+#             */
-/*   Updated: 2026/07/27 15:23:58 by sonfong          ###   ########.fr       */
+/*   Updated: 2026/08/25 15:32:32 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char c)
+#include "libft.h"
+
+int	ft_isalpha(int c)
 {
 	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 		return (1);

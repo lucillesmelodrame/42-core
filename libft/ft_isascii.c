@@ -6,11 +6,13 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 15:27:35 by sonfong           #+#    #+#             */
-/*   Updated: 2026/07/27 15:31:14 by sonfong          ###   ########.fr       */
+/*   Updated: 2026/08/25 15:30:33 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(char c)
+#include "libft.h"
+
+int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 		return (1);

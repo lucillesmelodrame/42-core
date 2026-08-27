@@ -6,9 +6,11 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 16:46:40 by sonfong           #+#    #+#             */
-/*   Updated: 2026/07/28 16:51:55 by sonfong          ###   ########.fr       */
+/*   Updated: 2026/08/25 15:46:26 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	ft_toupper(char c)
 {

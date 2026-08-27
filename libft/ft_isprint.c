@@ -6,11 +6,13 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 15:31:30 by sonfong           #+#    #+#             */
-/*   Updated: 2026/07/27 15:32:30 by sonfong          ###   ########.fr       */
+/*   Updated: 2026/08/25 15:42:32 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(char c)
+#include "libft.h"
+
+int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 127)
 		return (1);

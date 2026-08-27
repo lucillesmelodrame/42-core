@@ -6,13 +6,13 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 09:26:32 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/13 19:42:44 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/25 15:46:02 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	to_trim(char c, char const *set);
+static	int	to_trim(char c, char const *set);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

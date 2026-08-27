@@ -6,9 +6,11 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 17:21:42 by sonfong           #+#    #+#             */
-/*   Updated: 2026/07/30 17:38:19 by sonfong          ###   ########.fr       */
+/*   Updated: 2026/08/25 15:44:02 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {
