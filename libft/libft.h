@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 15:16:03 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/25 15:48:38 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/28 09:21:42 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <stdlib.h>
 #include <unistd.h>
-
+// Part 1: Libc Functions
 int	ft_isalnum(int c);
 int	ft_isalpha(int c);
 int	ft_isdigit(int c);
@@ -39,6 +39,7 @@ void	*ft_memcpy(void	*dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_calloc(size_t n, size_t size);
 char	*ft_strdup(const char *s);
+// Part 2: Additional Functions
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
@@ -50,7 +51,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-
+// Part 3: Linked List
 typedef struct	s_list
 {
 	void		*content;
