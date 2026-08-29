@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 13:11:02 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/09 00:55:21 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/29 17:48:30 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	{
 		while (i < n)
 		{
-			cdest[i] = csrc[i];
-			i++;
+			cdest[i++] = csrc[i++];
 		}
 	}
 	else if (dest > src)
@@ -36,8 +35,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		while (n > 0)
 		{
 			n -= 1;
-			cdest[n] = csrc[n];
-			n--;
+			cdest[n--] = csrc[n--];
 		}
 	}
 	return (dest);

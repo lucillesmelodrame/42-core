@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/26 14:34:11 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/29 17:18:47 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/29 17:59:13 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ char	**ft_split(char const *s, char c)
 	}
 	return (result);
 }
-
 /*
 #include <stdio.h>
 int	main(void)

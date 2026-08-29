@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 14:44:02 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/21 16:05:53 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/29 17:49:12 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static size_t	count_len(int n);
 
 char	*ft_itoa(int n)
 {
-	size_t	i;
-	size_t	len;
-	char	*res;
+	size_t			i;
+	size_t			len;
+	char			*res;
 	unsigned int	nbr;
 
 	len = count_len(n);

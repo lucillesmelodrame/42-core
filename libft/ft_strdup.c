@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 19:58:29 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/12 16:52:05 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/29 17:44:25 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strdup(const char *s1)
 {
 	char	*tmp;
-	int	i;
+	int		i;
 	size_t	j;
 
 	i = 0;

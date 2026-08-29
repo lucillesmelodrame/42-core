@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 19:13:24 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/25 15:44:14 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/29 17:33:05 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*cs;
-	size_t	i;
+	size_t			i;
 
 	cs = (unsigned char *)s;
 	i = 0;

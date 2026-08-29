@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 16:16:04 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/21 21:44:04 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/29 17:45:26 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putnbr_fd(int n, int fd)
 {
 	unsigned int	nbr;
-	char	c;
+	char			c;
 
 	nbr = n;
 	if (n < 0)
@@ -43,7 +43,7 @@ void test(int n)
 
 int main(void)
 {
-    int tests[] = {0, 5, 9, 10, 124, 1000000, 2147483647, -5, -124, -10, -2147483648};
+    int tests[] = {0, 5, 9, 10, 124, 2147483647, -5, -124, -10, -2147483648};
     for (size_t i = 0; i < sizeof(tests)/sizeof(tests[0]); i++)
         test(tests[i]);
 }

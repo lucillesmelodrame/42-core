@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 17:00:32 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/09 03:47:08 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/29 17:43:46 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strchr(const char *src, int c)
 	while (src[i])
 	{
 		if (c == src[i])
-			return((char *)&src[i]);
+			return ((char *)&src[i]);
 		i++;
 	}
 	if (c == '\0')

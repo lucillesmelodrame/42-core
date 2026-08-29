@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 16:41:05 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/05 19:13:17 by sonfong          ###   ########.fr       */
+/*   Updated: 2026/08/29 17:47:15 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memset(void *src, int c, size_t n)
 {
 	unsigned char	*csrc;
 	unsigned char	cc;
-	size_t	i;
+	size_t			i;
 
 	csrc = (unsigned char *)src;
 	i = 0;
