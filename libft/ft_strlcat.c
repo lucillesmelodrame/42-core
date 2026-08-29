@@ -6,30 +6,41 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 16:18:19 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/25 13:15:31 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/30 03:46:49 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strlcat(char *dest, const char *src, size_t n)
+size_t	ft_strlcat(char *dest, const char *src, size_t n)
 {
-	size_t	i;
-	size_t	j;
+	size_t	src_len;
+	size_t	dest_len;
 
-	i = 0;
-	j = 0;
-	if (n == 0)
-		return (0);
-	while (dest[i])
-		i++;
-	while (j < n && src[j])
+	src_len = ft_strlen(src);
+	dest_len = ft_strlen(dest);
+	if (n <= dest_len)
+		dest_len = n;
+	if (n == dest_len)
+		return (dest_len + src_len);
+	if (src_len < n - dest_len)
+		ft_memcpy(dest + dest_len, src, src_len + 1);
+	else
 	{
-		dest[i] = src[j];
-		j++;
-		i++;
+		ft_memcpy(dest + dest_len, src, n - dest_len - 1);
+		dest[n - 1] = '\0';
 	}
-	while (j < n)
-		dest[j] = '\0';
-	return (dest);
+	return (dest_len + src_len);
 }
+/*
+#include <stdio.h>
+#include <string.h>
+int	main(void)
+{
+	char	dest[] = "Hello";
+	char	src[20] = "World!";
+	size_t	n = ft_strlcat(dest, src, 6);
+	printf("%ld\n", n);
+	printf("%s\n", dest);
+}
+*/

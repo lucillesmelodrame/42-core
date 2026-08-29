@@ -6,19 +6,18 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/26 14:34:11 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/29 18:34:49 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/30 03:40:55 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* static int	in_word(char c, char delim)
+static void	initialise_vars(int *start_index, size_t *i, size_t *j)
 {
-	if (c != delim && c != '\0')
-		return (1);
-	else
-		return (0);
-} */
+	*start_index = -1;
+	*i = 0;
+	*j = 0;
+}
 
 static size_t	count_words(const char *str, char delim)
 {
@@ -68,9 +67,7 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 	size_t	j;
 
-	start_index = -1;
-	i = 0;
-	j = 0;
+	initialise_vars(&start_index, &i, &j);
 	result = ft_calloc((count_words(s, c) + 1), sizeof(char *));
 	if (!result)
 		return (NULL);
@@ -78,7 +75,7 @@ char	**ft_split(char const *s, char c)
 	{
 		if ((s[i] != c && s[i] != '\0') && start_index < 0)
 			start_index = i;
-		else if (s[i] == c && start_index >= 0)
+		else if ((s[i] == c || s[i] == '\0') && start_index >= 0)
 		{
 			result[j] = fill_word(s, start_index, i);
 			if (!result[j])
@@ -90,7 +87,7 @@ char	**ft_split(char const *s, char c)
 	}
 	return (result);
 }
-
+/*
 #include <stdio.h>
 int	main(void)
 {
@@ -105,3 +102,4 @@ int	main(void)
 	}
 	return (0);
 }
+*/
