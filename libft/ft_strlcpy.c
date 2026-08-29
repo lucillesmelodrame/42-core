@@ -6,28 +6,35 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 11:42:59 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/25 13:15:58 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/29 20:02:03 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strlcpy(char *dest, const char *src, size_t n)
+size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 {
-	size_t	i;
+	size_t	len;
 
-	i = 0;
+	len = ft_strlen(src);
 	if (n <= 0)
 		return (0);
-	while (i < n && src[i] != '\0')
+	if (n >= len + 1)
+		ft_memcpy(dest, src, len + 1);
+	else
 	{
-		dest[i] = src[i];
-		i++;
+		ft_memcpy(dest, src, n - 1);
+		dest[n - 1] = '\0';
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (len);
+}
+#include <string.h>
+#include <stdio.h>
+int	main(void)
+{
+	char 	dest[] = "Hello";
+	char	src[] = "World!";
+	size_t	n = strlcpy(dest, src, 6);
+	printf("%ld\n", n);
+	printf("%s\n", dest);
 }

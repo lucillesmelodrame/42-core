@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 15:16:03 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/29 17:56:18 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/29 19:15:22 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void			*ft_memset(void *src, int c, size_t n);
 void			ft_bzero(void *src, size_t n);
 char			*ft_strchr(const char *src, int c);
 char			*ft_strlcat(char *dest, const char *src, size_t n);
-char			*ft_strlcpy(char *dest, const char *src, size_t n);
+size_t			ft_strlcpy(char *dest, const char *src, size_t n);
 char			ft_toupper(char c);
 char			ft_tolower(char c);
 char			*ft_strrchr(const char *s, int c);
