@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 17:00:32 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/29 17:44:06 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/30 18:54:49 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@ char	*ft_strrchr(const char *src, int c)
 	i = ft_strlen(src);
 	while (i--)
 	{
-		if (c == src[i])
+		if ((unsigned char)c == (unsigned char)src[i])
 			return ((char *)&src[i]);
-		i--;
 	}
 	if (c == '\0')
-		return ((char *)src);
-	return (0);
+		return ((char *)&src[ft_strlen(src)]);
+	return (NULL);
 }
 /*
 int	main(void)

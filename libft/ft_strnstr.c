@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 16:02:36 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/12 02:48:34 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/30 23:58:59 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *src, const char *find, size_t n)
 
 	i = 0;
 	j = 0;
-	if (!find)
+	if (!find || !find[0])
 		return ((char *)src);
 	while (src[i] && i < n)
 	{

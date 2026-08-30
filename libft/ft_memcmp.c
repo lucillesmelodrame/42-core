@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 16:58:46 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/09 17:19:48 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/30 18:28:10 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	*p1;
-	char	*p2;
+	unsigned char	*p1;
+	unsigned char	*p2;
 	size_t	i;
 
-	p1 = (char *)s1;
-	p2 = (char *)s2;
+	p1 = (unsigned char *)s1;
+	p2 = (unsigned char *)s2;
 	i = 0;
 	while (n--)
 	{
