@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/23 15:32:06 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/23 15:49:51 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/30 16:28:26 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ unsigned int	ft_lstsize(t_list *lst)
 	unsigned int	i;
 
 	i = 0;
-	while (lst->next != NULL)
+	while (lst != NULL)
 	{
 		lst = lst->next;
 		i++;
