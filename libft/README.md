@@ -15,7 +15,7 @@ To remove **libft.a** and all object files, run the command `make fclean`.
 
 To remove all object files and **libft.a** library, then recreate the entire library again, run the command `make re`.
 
-All functions should be (and are while testing) compiled with `cc -Wall -Werror -Wextra`. To use the library, compile the c file with the library. `cc -Wall -Wextra -Werror ft_isalnum.c libft.a`.
+All functions should be (and are while testing) compiled with `cc -Wall -Werror -Wextra`. To use the library, compile the c file with the library. `cc -Wall -Wextra -Werror ft_split.c libft.a`.
 
 ## Resources
 The behaviour of each function was implemented using resources such as:

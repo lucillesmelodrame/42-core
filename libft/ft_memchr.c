@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 16:59:33 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/30 18:13:29 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/08/31 03:22:02 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memchr(const void *src, int c, size_t n)
 {
 	unsigned char	*csrc;
-	size_t	i;
+	size_t			i;
 
 	csrc = (unsigned char *)src;
 	i = 0;
