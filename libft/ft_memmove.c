@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 13:11:02 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/30 03:44:10 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/02 05:30:17 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,45 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-/*
-#include <stdio.h>
-#include <string.h>
+
+#include "testers.h"
+
 int	main(void)
 {
-	char	s1[] = "Hello";
-	char	s2[] = "World!";
-	memmove(s1, s2, 4);
-	printf("%s\n", s1);
+	t_memmove	tests[] =
+	{
+		{"Hello", "World!", 6, "dest gets fully overwritten"},
+		{"Hello", "World!", 0, "n=0, dest untouched"},
+		{"Hello", "World!", 1, "just 1 byte over"},
+		{"Hello", "", 1, "copying the null term"},
+		{"Hello", "Wor\0ld", 7, "null byte in the middle of src"},
+		{"Hel\0lo", "World", 6, "null byte in the middle of dest"},
+		{"Hello", "Hi!", 3, "src is shorter than dest"},
+		{"Hi!", "Hello", 5, "src is longer than dest"}
+	};
+	int		count = sizeof(tests) / sizeof(tests[0]);
+	char	buf[20];
+	char	abuf[20];
+
+	for (int i = 0; i < count; i++)
+	{
+		char		*dest = (char *)tests[i].dst;
+		const char	*src = (const char *)tests[i].src;
+		char		*label = tests[i].label;
+
+		ft_strlcpy(buf, dest, sizeof(buf));
+		ft_strlcpy(abuf, dest, sizeof(abuf));
+		char	*result = (char *)ft_memmove(buf, src, tests[i].n);
+		char	*aresult = (char *)memmove(abuf, src, tests[i].n);
+		int		cmp = ft_memcmp(buf, abuf, sizeof(buf));
+
+		if (cmp == 0)
+			printf(GREEN);
+		else
+			printf(RED);
+		printf("desc: %s | src: %s | result: %s | expected: %s | memcmp: %d\n\n",
+			label, src, result, aresult, cmp);
+		printf(RESET);
+	}
+	return (0);
 }
-*/

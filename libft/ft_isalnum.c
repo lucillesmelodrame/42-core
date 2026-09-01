@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 15:24:21 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/25 15:41:53 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/01 20:40:24 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,18 @@ int	ft_isalnum(int c)
 		return (1);
 	else
 		return (0);
+}
+
+#include <stdio.h>
+#include <ctype.h>
+int	main(void)
+{
+	int	test[] = {'0', '9', 'A', 'Z', 'a', 'z', '/', ':', '@', '[', 0, -1, 127, 128, ' ', '\n'};
+	for (size_t i = 0; i < 16; i++)
+	{
+		int result = ft_isalnum(test[i]);
+		int	aresult = isalnum(test[i]);
+		printf("input: %d | result: %d | expected: %d\n", test[i], result, aresult);
+	}
+	return (0);
 }

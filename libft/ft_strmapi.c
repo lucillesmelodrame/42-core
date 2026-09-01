@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 22:35:12 by sonfong           #+#    #+#             */
-/*   Updated: 2026/08/22 01:29:29 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/02 05:38:23 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,36 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	}
 	return (res);
 }
-/*
-char	my_map(unsigned int n, char c)
+
+#include "testers.h"
+
+char	to_upper_wrap(unsigned int i, char c)
 {
-	if (n % 2 == 0)
-		c -= 32;
-	return (c);
+	(void)i;
+	return (ft_toupper(c));
 }
 
 int	main(void)
 {
-	char	s[] = "hello world";
-	char	*res = ft_strmapi(s, my_map);
-	printf("%s\n", res);
+	char	*tests[] = {"hello world", "", "H", "HELLO"};
+	int		count = sizeof(tests) / sizeof(tests[0]);
+
+	for (int i = 0; i < count; i++)
+	{
+		char	*result = ft_strmapi(tests[i], to_upper_wrap);
+		char	*result_str;
+
+		if (result)
+			result_str = result;
+		else
+			result_str = "NULL";
+		if (result)
+			printf(GREEN);
+		else
+			printf(RED);
+		printf("input: %s | result: %s\n\n", tests[i], result_str);
+		printf(RESET);
+		free(result);
+	}
+	return (0);
 }
-*/
