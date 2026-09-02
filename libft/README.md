@@ -1,4 +1,3 @@
-
 *This project has been created as part of the 42 curriculum by sonfong.*
 
 ## Description
@@ -79,3 +78,17 @@ These functions are reimplemented from the `libc`. They have the same prototypes
 * `ft_lstclear` — deletes and frees the given node and all of the next ones, sets the pointer to the list to `NULL`
 * `ft_lstiter` — iterates through `lst` and applies the function `f` to each node
 * `ft_lstmap` — iterates through `lst`, applies function `f` and creates a new list with all the successive applications of `f`, `del` deletes the content of a node if needed.
+
+## Additional Instructions
+I have created a `testers` branch in my git repo, with additional testing infrastructure that is not part of the graded submission but is available to test the library's behaviour directly.
+
+To switch to the testers branch, run the command `git checkout testers`.
+
+To switch back to the master branch, run the command `git checkout master`.
+### What's inside the test branch
+Besides the same thing as the master branch, the test branch also includes:
+* `tester.h` — a shared header used by the test programs. It defines simple color macros (`RED`, `GREEN`, `RESET`) for readable pass/fail output, and a set of small structs (e.g. `t_memchr`, `t_strncmp`, `t_split`, etc.) used to bundle each test case's inputs and a descriptive label, so test cases can be organised as arrays of structs and looped over rather than written out one by one.
+* Most `ft_*.c` files on this branch include their own `int main(void)` at the bottom, testing that specific function in isolation.
+* Linked-list and _fd functions — since these are harder to test standalone (they rely on file descriptors or a full t_list chain), their tests live in separate dedicated .c files instead, each calling the relevant functions and printing results.
+### Running the tests
+Each test file can be compiled normally against the library, for example: `cc -Wall -Wextra -Werror ft_strlen.c libft.a`
