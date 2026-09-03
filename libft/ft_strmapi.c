@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 22:35:12 by sonfong           #+#    #+#             */
-/*   Updated: 2026/09/02 05:38:23 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/02 18:15:51 by sonfong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,37 +29,4 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		i++;
 	}
 	return (res);
-}
-
-#include "testers.h"
-
-char	to_upper_wrap(unsigned int i, char c)
-{
-	(void)i;
-	return (ft_toupper(c));
-}
-
-int	main(void)
-{
-	char	*tests[] = {"hello world", "", "H", "HELLO"};
-	int		count = sizeof(tests) / sizeof(tests[0]);
-
-	for (int i = 0; i < count; i++)
-	{
-		char	*result = ft_strmapi(tests[i], to_upper_wrap);
-		char	*result_str;
-
-		if (result)
-			result_str = result;
-		else
-			result_str = "NULL";
-		if (result)
-			printf(GREEN);
-		else
-			printf(RED);
-		printf("input: %s | result: %s\n\n", tests[i], result_str);
-		printf(RESET);
-		free(result);
-	}
-	return (0);
 }
