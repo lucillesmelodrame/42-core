@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 11:42:59 by sonfong           #+#    #+#             */
-/*   Updated: 2026/09/02 05:25:21 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/03 18:22:22 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	main(void)
 		{"Existing", "World", 10, "cat: dstsize smaller than combined length"}
 	};
 	int		count = sizeof(tests) / sizeof(tests[0]);
-	char	buf[20];
-	char	abuf[20];
+	char	buf[20] = {0};
+	char	abuf[20] = {0};
 
 	for (int i = 0; i < count; i++)
 	{

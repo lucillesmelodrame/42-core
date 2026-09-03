@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 22:35:12 by sonfong           #+#    #+#             */
-/*   Updated: 2026/09/02 05:38:23 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/03 18:23:18 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 char	to_upper_wrap(unsigned int i, char c)
 {
 	(void)i;
-	return (ft_toupper(c));
+	return (toupper(c));
 }
 
 int	main(void)
