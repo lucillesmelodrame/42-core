@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 16:41:05 by sonfong           #+#    #+#             */
-/*   Updated: 2026/09/02 05:32:29 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/03 14:31:21 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	main(void)
 		{"a", 'o', 1, "tiny 1 byte buffer"}
 	};
 	int		count = sizeof(tests) / sizeof(tests[0]);
-	char 	buf[20];
-	char	abuf[20];
+	char 	buf[20] = {0};
+	char	abuf[20] = {0};
 	for (int i = 0; i < count; i++)
 	{
 		const char	*input = (const char *)tests[i].s;
@@ -50,7 +50,7 @@ int	main(void)
 		ft_strlcpy(abuf, input, sizeof(abuf));
 		char	*result = (char *)ft_memset(buf, tests[i].c, tests[i].n);
 		char	*aresult = (char *)memset(abuf, tests[i].c, tests[i].n);
-		int		cmp = ft_memcmp(result, aresult, sizeof(aresult));
+		int		cmp = ft_memcmp(result, aresult, sizeof(buf));
 		char	*label = tests[i].label;
 		if (cmp == 0)
 			printf(GREEN);

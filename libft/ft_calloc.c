@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 18:21:14 by sonfong           #+#    #+#             */
-/*   Updated: 2026/09/02 05:34:40 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/03 15:11:04 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,24 +47,26 @@ int	main(void)
 	for (int i = 0; i < count; i++)
 	{
 		void	*result = ft_calloc(nmemb_tests[i], size_tests[i]);
+		// total = how many bytes should have been allocated
 		size_t	total = nmemb_tests[i] * size_tests[i];
 		int		all_zero = 1;
 		int		pass;
 		char	*status_str;
 		char	*zero_str;
-
+		// checks if memory has been zeroed
 		if (result)
 			for (size_t j = 0; j < total; j++)
 				if (((unsigned char *)result)[j] != 0)
 					all_zero = 0;
+		// OK if result = 0 (expected) OR total = 0 (0 bytes were asked to be allocated)
 		if ((result || total == 0) && all_zero)
 			pass = 1;
 		else
 			pass = 0;
 		if (result)
-			status_str = "got a buffer";
+			status_str = "allocation success";
 		else
-			status_str = "NULL";
+			status_str = "allocation failed";
 		if (all_zero)
 			zero_str = "yep";
 		else
@@ -80,7 +82,7 @@ int	main(void)
 	}
 	void	*huge = ft_calloc((size_t)-1, (size_t)-1);
 	char	*huge_str;
-
+	// overflow check, allocating largest possible value
 	if (huge)
 		huge_str = "allocated (bug, should be NULL)";
 	else

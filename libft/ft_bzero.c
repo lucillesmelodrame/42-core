@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 19:13:24 by sonfong           #+#    #+#             */
-/*   Updated: 2026/09/02 05:31:42 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/03 13:34:12 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int	main(void)
 		{"\0\0\0\0\0", 5, "already all zeros, shouldnt break anything"}
 	};
 	int		count = sizeof(tests) / sizeof(tests[0]);
-	char	buf[20];
-	char	abuf[20];
+	char	buf[20] = {0};
+	char	abuf[20] = {0};
 
 	for (int i = 0; i < count; i++)
 	{
@@ -49,7 +49,7 @@ int	main(void)
 		ft_strlcpy(abuf, input, sizeof(abuf));
 		ft_bzero(buf, tests[i].n);
 		bzero(abuf, tests[i].n);
-		int	cmp = ft_memcmp(buf, abuf, sizeof(buf));
+		int	cmp = ft_memcmp(buf, abuf, sizeof(tests[i].s));
 
 		if (cmp == 0)
 			printf(GREEN);

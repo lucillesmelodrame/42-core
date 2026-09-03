@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 12:17:42 by sonfong           #+#    #+#             */
-/*   Updated: 2026/09/02 05:31:16 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/03 14:27:25 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int	main(void)
 		{"Hi!", "Hello", 5, "src is longer than dest"}
 	};
 	int		count = sizeof(tests) / sizeof(tests[0]);
-	char	buf[20];
-	char	abuf[20];
+	char	buf[20] = {0};
+	char	abuf[20] = {0};
 
 	for (int i = 0; i < count; i++)
 	{
