@@ -92,3 +92,5 @@ Besides the same thing as the master branch, the test branch also includes:
 * Linked-list and _fd functions — since these are harder to test standalone (they rely on file descriptors or a full t_list chain), their tests live in separate dedicated .c files instead, each calling the relevant functions and printing results.
 ### Running the tests
 Each test file can be compiled normally against the library, for example: `cc -Wall -Wextra -Werror ft_strlen.c libft.a`
+
+For some files, compiling with the -lbsd flag will be helpful as I use strlcpy.

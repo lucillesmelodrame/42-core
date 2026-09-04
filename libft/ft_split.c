@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/26 14:34:11 by sonfong           #+#    #+#             */
-/*   Updated: 2026/09/02 05:23:33 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/02 18:14:48 by sonfong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,43 +86,4 @@ char	**ft_split(char const *s, char c)
 		i++;
 	}
 	return (result);
-}
-
-#include "testers.h"
-
-int	main(void)
-{
-	t_split	tests[] =
-	{
-		{"Hello World Foo", ' ', "normal split on spaces"},
-		{"", ' ', "empty string"},
-		{"     ", ' ', "its literally all delimiters"},
-		{"Hello   World", ' ', "bunch of delimiters stacked together"},
-		{" Hello World ", ' ', "delimiter right at the start and end"},
-		{"HelloWorld", ' ', "no delimiter anywhere, should be one word"},
-		{",Hello,,World,", ',', "different delimiter this time"}
-	};
-	int	count = sizeof(tests) / sizeof(tests[0]);
-
-	for (int i = 0; i < count; i++)
-	{
-		char	**result = ft_split(tests[i].s, tests[i].c);
-
-		printf("desc: %s\n", tests[i].label);
-		if (!result)
-			printf(RED "  got NULL back\n" RESET);
-		else
-		{
-			for (int j = 0; result[j]; j++)
-				printf("  [%d]: \"%s\"\n", j, result[j]);
-			printf("\n");
-		}
-		if (result)
-		{
-			for (int j = 0; result[j]; j++)
-				free(result[j]);
-			free(result);
-		}
-	}
-	return (0);
 }
